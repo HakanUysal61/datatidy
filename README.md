@@ -1,4 +1,3 @@
-# datatidy
 # This document is to explain how "run_analysis" R script works.
 # This script developed on R3.6.1.
 # This script is developed as part of "Getting and Cleaning Data" JHU course by Coursera as Course Project.
@@ -28,7 +27,42 @@
 # x_train     	: training data
 # x_test      	: test data
 # x_full	: merged data for test and training
+# y_test	: test activity code
+# y_train	: training activity codes
 # features	: feature names
 # subject_train : subjects for training observations
 # subject_test	: subjects for test observations
 # subject_full  : merged subject data for training and test
+# full_data     : merged of subject_full,x_full and y_full
+# means		: only mean results  from full_data
+# std		: only std results from full_data
+# mean_std	: merged of means and std
+# tidy 		: subject and activity added to mean_std and NA values omitted grouped by subject,activity
+
+
+# 1st working directory and related libraries loaded.
+# A function to remove "()-_." (correctname) is defined.
+# Training and test data has been read from test and training directories (X_train.txt and X_test.txt)
+# Test and trainin data is merged
+# feature names read and added from "features.txt"
+# Subject information is added.
+# Activity labels are read from (activity_labels.txt) and added to Y.
+# Column names are corrected as "subject" and "activity"
+# Subject and merged test-training x,y data is merged
+# correctnames function is applied to make names lower case and no symbols
+# feature names are changed with more meaningfull names
+# means data is selected from this final data set using contains function
+# std is selected with similar approach
+# mean and std data is merged
+# NA values are removed
+# data written to tidy.txt as new tidy file with grouped subject,activity
+
+
+# Data Source:
+#Jorge L. Reyes-Ortiz(1,2), Davide Anguita(1), Alessandro Ghio(1), Luca Oneto(1) and Xavier Parra(2)
+#1 - Smartlab - Non-Linear Complex Systems Laboratory
+#DITEN - Università degli Studi di Genova, Genoa (I-16145), Italy.
+#2 - CETpD - Technical Research Centre for Dependency Care and Autonomous Living
+#Universitat Politècnica de Catalunya (BarcelonaTech). Vilanova i la Geltrú (08800), Spain
+#activityrecognition '@' smartlab.ws
+
